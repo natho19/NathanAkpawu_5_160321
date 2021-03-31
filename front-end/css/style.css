@@ -69,6 +69,7 @@ h1 {
 }
 
 .single-title {
+    font-family: inherit;
     font-size: 2rem;
     margin-bottom: 1rem;
 }
@@ -108,6 +109,28 @@ h1 {
     display: block;
     flex-grow: 1;
     margin: 0 10px;
+}
+
+.section-order h2 {
+    font-family: 'Finger Paint', cursive;
+    font-size: 1.8rem;
+}
+
+.card-white {
+    border: 1px solid #dee2e6;
+    padding: 1.5rem;
+    background: #FFF;
+}
+
+.section-confirmation h2 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+.section-confirmation h3 {
+    font-weight: normal;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 991.98px) { 
