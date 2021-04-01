@@ -19,12 +19,11 @@ loadConfig().then(data => {
             <div class="buttons">
                 <a href="cart.html" class="btn btn-purple btn-lg rounded-pill"><i class="bi bi-plus-circle"></i> Ajouter au panier</a>
                 <a href="index.html" class="btn btn-purple btn-lg rounded-pill"><i class="bi bi-eye"></i> Autres produits</a>
-                </div>
+            </div>
         </div>`
         product.getColors();
     })
     .catch(error => {
-        console.log(error);
         redirect404();
     });
 });
