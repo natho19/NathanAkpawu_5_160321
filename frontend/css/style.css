@@ -81,24 +81,8 @@ h1 {
     margin-bottom: 1rem;
 }
 
-.single-options h3 {
-    font-size: 1.1rem;
-    text-decoration: underline;
-    margin-bottom: .5rem;
-}
-
-.colors {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.color {
-    margin: 10px;
-    display: block;
-    flex-grow: 1;
-    height: 120px;
+.single-colors {
+    margin-bottom: 20px;
 }
 
 .buttons {
