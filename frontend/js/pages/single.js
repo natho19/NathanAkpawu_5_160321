@@ -24,7 +24,7 @@ function displaySingleProduct(product) {
     </div>
     <div class="col-lg-6 col-xs-12">
         <h1 class="single-title">${product.name}</h1>
-        <h2 class="single-price">Prix : <strong>${product.formatPrice()} &euro;</strong></h2>
+        <h2 class="single-price">Prix : <strong>${formatPrice(product.price)} &euro;</strong></h2>
         <p class="single-description">${product.description}</p>
         <select class="single-colors form-select">
             <option selected>Choisir la couleur</option>

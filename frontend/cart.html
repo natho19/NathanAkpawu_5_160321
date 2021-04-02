@@ -37,92 +37,75 @@
     </header>
 
     <!-- Section Cart -->
-    <section class="section-cart">
-        <div class="container">
-            <div class="row mb-5">
-                <h1 class="text-center">Résumé des produits</h1>
-            </div>
-            <!-- Summary -->
-            <div class="row">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Produit</th>
-                            <th scope="col">Quantité</th>
-                            <th scope="col">Prix</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Imac</th>
-                            <td>2</td>
-                            <td>3000.00 &euro;</td>
-                            <td>6000.00 &euro;</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Imac</th>
-                            <td>2</td>
-                            <td>3000.00 &euro;</td>
-                            <td>6000.00 &euro;</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Imac</th>
-                            <td>1</td>
-                            <td>3000.00 &euro;</td>
-                            <td>3000.00 &euro;</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th class="text-end" scope="col" colspan="3">Prix total</th>
-                            <th scope="col">15000.00 &euro;</th>
-                        </tr>
-                    </tfoot>
-                </table>
-                <div class="text-center mt-3">
-                    <a href="confirmation.html" class="btn btn-purple rounded-pill mx-2"><i class="bi bi-plus-circle"></i> Ajouter d'autres produits</a>
-                    <a href="#order" class="btn btn-purple rounded-pill mx-2"><i class="bi bi-check-circle"></i> Passer la commande</a>
+    <div id="main">
+        <section class="section-cart">
+            <div class="container">
+                <div class="row mb-5">
+                    <h1 class="text-center">Résumé des produits</h1>
+                </div>
+                <!-- Summary -->
+                <div class="row">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Produit</th>
+                                <th scope="col">Quantité</th>
+                                <th scope="col">Prix</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-lines">
+                        </tbody>
+                        <tfoot>
+                            <tr id="total-cost">
+                                <th class="text-end" scope="col" colspan="3">Prix total</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="text-center mt-3">
+                        <a href="#order" class="btn btn-purple rounded-pill mx-2"><i class="bi bi-check-circle"></i> Passer la commande</a>
+                        <a href="confirmation.html" class="btn btn-purple rounded-pill mx-2"><i class="bi bi-plus-circle"></i> Ajouter d'autres produits</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Section Order -->
-    <section class="bg-light section-order" id="order">
-        <div class="container">
-            <div class="row mb-4">
-                <h2>Passer la commande</h2>
+        </section>
+    
+        <!-- Section Order -->
+        <section class="bg-light section-order" id="order">
+            <div class="container">
+                <div class="row mb-4">
+                    <h2>Passer la commande</h2>
+                </div>
+                <div class="row">
+                    <form class="card-white row g-3">
+                        <div class="col-md-6">
+                            <label for="inputLastName" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="inputLastName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputFirstName" class="form-label">Prénoms</label>
+                            <input type="text" class="form-control has-validation" id="inputFirstName">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">Ville</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label">Addresse</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        </div>
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-purple rounded-pill"><i class="bi bi-check-circle"></i> Procéder au paiement</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="row">
-                <form class="card-white row g-3">
-                    <div class="col-md-6">
-                        <label for="inputLastName" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="inputLastName" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputFirstName" class="form-label">Prénoms</label>
-                        <input type="text" class="form-control has-validation" id="inputFirstName">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Ville</label>
-                        <input type="text" class="form-control" id="inputCity">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputAddress" class="form-label">Addresse</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    </div>
-                    <div class="col-12 text-center mt-4">
-                        <button type="submit" class="btn btn-purple rounded-pill"><i class="bi bi-check-circle"></i> Procéder au paiement</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -137,6 +120,7 @@
     <script src="js/config.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/product.js"></script>
+    <script src="js/pages/cart.js"></script>
     
 </body>
 </html>
