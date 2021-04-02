@@ -39,6 +39,7 @@ function displaySingleProduct(product) {
     document.getElementById('add-cart').onclick = (event) => {
         event.preventDefault();
         cartNumbers(product);
+        totalCost(product);
     }
 }
 
@@ -70,18 +71,39 @@ function cartNumbers(product) {
 
 function setItems(product) {
     let cartItems = localStorage.getItem('productsInCart');
+    // On passe le JSON en objet Javascript
     cartItems = JSON.parse(cartItems);
-    let itemInCart = localStorage.getItem('itemInCart');
-    itemInCart = parseInt(itemInCart);
 
-    if (cartItems !== null) {
-        if (itemInCart) {
-            localStorage.setItem('itemInCart', itemInCart + 1)
-        } else {
-            localStorage.setItem('itemInCart', 1)
+    // Si cartItems a un élément, on incrémente son nombre d'éléments au panier
+    if (cartItems != null) {
+        // Si on ajoute un nouveau produit
+        if (cartItems[product._id] == undefined) {
+            // On ajoute le nouveau produit à la liste des anciens produits
+            product.inCart = 0;
+            cartItems = {
+                ...cartItems,
+                [product._id]: product
+            }
+        }
+        cartItems[product._id].inCart += 1;
+    } else {
+        product.inCart = 1;
+        cartItems = {
+            [product._id]: product
         }
     }
+    
+    // On passe l'objet Javascript en format JSON
+    localStorage.setItem('productsInCart', JSON.stringify(cartItems));
+}
 
-    localStorage.setItem('itemInCart', 1);
-    localStorage.setItem('productsInCart', JSON.stringify(product));
+function totalCost(product) {
+    let cartCost = localStorage.getItem('totalCost');
+    
+    if (cartCost != null) {
+        cartCost = parseInt(cartCost);
+        localStorage.setItem('totalCost', cartCost + product.price);
+    } else {
+        localStorage.setItem('totalCost', product.price);
+    }
 }

@@ -21,7 +21,7 @@ function displayProduct(product) {
             <div class="card-body">
                 <div class="card-title-price">
                     <h2 class="card-title">${product.name}</h2>
-                    <h3 class="card-price badge bg-purple">${product.formatPrice()} &euro;</h3>
+                    <h3 class="card-price badge bg-purple">${formatPrice(product.price)} &euro;</h3>
                 </div>
                 <p class="card-text">${product.description}</p>
                 <div class="text-center">

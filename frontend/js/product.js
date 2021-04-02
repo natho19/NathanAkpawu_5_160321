@@ -1,9 +1,6 @@
 class Product {
-    constructor(jsonProduct) {
+    constructor(jsonProduct, inCart) {
         jsonProduct && Object.assign(this, jsonProduct);
-    }
-
-    formatPrice() {
-        return (this.price / 100).toFixed(2);
+        this.inCart = inCart;
     }
 }
