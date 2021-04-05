@@ -77,26 +77,27 @@
                     <h2>Passer la commande</h2>
                 </div>
                 <div class="row">
-                    <form class="card-white row g-3">
+                    <!-- Formulaire pour passer la commande -->
+                    <form class="card-white row g-3" id="order-form">
                         <div class="col-md-6">
-                            <label for="inputLastName" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="inputLastName" required>
+                            <label for="lastname" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="lastname">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputFirstName" class="form-label">Prénoms</label>
-                            <input type="text" class="form-control has-validation" id="inputFirstName">
+                            <label for="firstname" class="form-label">Prénoms</label>
+                            <input type="text" class="form-control has-validation" id="firstname">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputCity" class="form-label">Ville</label>
-                            <input type="text" class="form-control" id="inputCity">
+                            <label for="city" class="form-label">Ville</label>
+                            <input type="text" class="form-control" id="city">
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress" class="form-label">Addresse</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            <label for="address" class="form-label">Addresse</label>
+                            <input type="text" class="form-control" id="address" placeholder="1234 Main St">
                         </div>
                         <div class="col-12 text-center mt-4">
                             <button type="submit" class="btn btn-purple rounded-pill"><i class="bi bi-check-circle"></i> Procéder au paiement</button>

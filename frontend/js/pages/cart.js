@@ -35,3 +35,65 @@ function displayCart() {
 }
 
 displayCart();
+
+// Quand on soumet le formulaire
+document.getElementById('order-form').onsubmit = (event) => {
+    event.preventDefault();
+    sendForm();
+}
+
+function sendForm() {
+    let contact = {
+        firstName: document.getElementById('firstname').value, 
+        lastName: document.getElementById('lastname').value, 
+        address: document.getElementById('address').value, 
+        city: document.getElementById('city').value, 
+        email: document.getElementById('email').value
+    };
+
+    let products = [];
+
+    if (localStorage.getItem('productsInCart')) {
+        let cartItems = localStorage.getItem('productsInCart');
+        cartItems = JSON.parse(cartItems);
+
+        Object.values(cartItems).forEach(product => {
+            products.push(product._id);
+        })
+
+        let contactItems = JSON.stringify({
+            contact, products
+        })
+        console.log(contactItems);
+        postOrder(contactItems);
+    }
+}
+
+function postOrder(contactItems) {
+    loadConfig().then(data => {
+        config = data;
+        fetch(config.host + 'api/teddies/order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            body: contactItems
+        })
+        .then(data => data.json())
+        .then(r => {
+            let totalProducts = localStorage.getItem('totalCost');
+            localStorage.setItem('contact', JSON.stringify(r.contact));
+            localStorage.setItem('orderId', JSON.stringify(r.orderId));
+            localStorage.setItem('products', JSON.stringify(r.products));
+            localStorage.setItem('totalProducts', totalProducts);
+            localStorage.removeItem('productsInCart');
+            localStorage.removeItem('cartNumbers');
+            localStorage.removeItem('totalCost');
+            window.location.replace('./confirmation.html');
+        })
+        .catch(function() {
+            redirect404();
+        });
+    });
+}
