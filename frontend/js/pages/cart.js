@@ -1,3 +1,6 @@
+displayCart();
+
+// Affiche le résumé des produits commandés
 function displayCart() {
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
@@ -11,8 +14,7 @@ function displayCart() {
                 <td>${item.inCart}</td>
                 <td>${formatPrice(item.price)} &euro;</td>
                 <td>${formatPrice(item.price * item.inCart)} &euro;</td>
-            </tr>
-            `
+            </tr>`;
         });
         let cartCost = localStorage.getItem('totalCost');
         let totalCost = document.getElementById('total-cost');
@@ -29,14 +31,12 @@ function displayCart() {
                     <a href="index.html" class="btn btn-purple btn-lg rounded-pill mx-2"><i class="bi bi-plus-circle"></i> Ajouter des produits</a>
                 </div>
             </div>
-        </section>
-        `
+        </section>`;
     }
 }
 
-displayCart();
 
-// Quand on soumet le formulaire
+// Lors de la soumission du formulaire
 const orderForm = document.getElementById('order-form');
 if (orderForm) {
     orderForm.onsubmit = (event) => {
@@ -48,12 +48,14 @@ if (orderForm) {
                 break;
             }
         }
+        // Si les informations renseignées sont exactes
         if (valid) {
             sendForm();
         }
     }
 }
 
+// Envoyer les données du formulaire
 function sendForm() {
     let contact = {
         firstName: document.getElementById('firstname').value, 
@@ -73,14 +75,15 @@ function sendForm() {
             products.push(product._id);
         });
 
-        let contactItems = JSON.stringify({
+        let contactProductsItems = JSON.stringify({
             contact, products
         });
-        postOrder(contactItems);
+        postOrder(contactProductsItems);
     }
 }
 
-function postOrder(contactItems) {
+// Envoie un objet de Contact et un tableau de produits
+function postOrder(contactProductsItems) {
     loadConfig().then(data => {
         config = data;
         fetch(config.host + 'api/teddies/order', {
@@ -89,7 +92,7 @@ function postOrder(contactItems) {
                 'Content-Type': 'application/json'
             },
             mode: 'cors',
-            body: contactItems
+            body: contactProductsItems
         })
         .then(data => data.json())
         .then(resp => {

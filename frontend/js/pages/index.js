@@ -1,3 +1,4 @@
+// Récupère les produits de l'API
 loadConfig().then(data => {
     config = data;
     fetch(config.host + 'api/teddies')
@@ -13,6 +14,7 @@ loadConfig().then(data => {
     })
 });
 
+// Affiche les produits
 function displayProduct(product) {
     document.querySelector('.products').innerHTML += `
     <div class="col-lg-4 col-md-6 col-xs-12 mb-5">
@@ -29,5 +31,5 @@ function displayProduct(product) {
                 </div>
             </div>
         </div>
-    </div>`
+    </div>`;
 }

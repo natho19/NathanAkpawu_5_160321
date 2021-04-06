@@ -1,3 +1,4 @@
+// Récupère les informations d'un produit par rapport à son id
 loadConfig().then(data => {
     config = data;
     const productId = getProductId();
@@ -13,10 +14,12 @@ loadConfig().then(data => {
     });
 });
 
+// Récupère l'id du produit dans un URL correspondant
 function getProductId() {
     return new URL(window.location.href).searchParams.get('id');
 }
 
+// Affiche les informations d'un produit
 function displaySingleProduct(product) {
     document.querySelector('.single-product').innerHTML = `
     <div class="col-lg-6 col-xs-12">
@@ -33,9 +36,9 @@ function displaySingleProduct(product) {
             <a href="cart.html" id="add-cart" class="btn btn-purple btn-lg rounded-pill"><i class="bi bi-plus-circle"></i> Ajouter au panier</a>
             <a href="index.html" class="btn btn-purple btn-lg rounded-pill"><i class="bi bi-eye"></i> Autres produits</a>
         </div>
-    </div>`
+    </div>`;
 
-    // Au clic du bouton ajouter au panier, exécuter la fonction cartNumbers()
+    // Au clic du bouton ajouter au panier
     document.getElementById('add-cart').onclick = (event) => {
         event.preventDefault();
         cartNumbers(product);
@@ -43,12 +46,13 @@ function displaySingleProduct(product) {
     }
 }
 
+// Récupère les couleurs d'un produit et les affiche dans le select
 function getColors(product) {
     let colors = product.colors;
     if (colors.length > 0) {
         for (const [i, color] of colors.entries()) {
             document.querySelector('.single-colors').innerHTML += `
-            <option value="${i + 1}">${color}</option>`
+            <option value="${i + 1}">${color}</option>`;
         }
     }
 }
@@ -69,6 +73,7 @@ function cartNumbers(product) {
     setItems(product);
 }
 
+// Récupère les produits commandés et les enregistre dans le localStorage
 function setItems(product) {
     let cartItems = localStorage.getItem('productsInCart');
     // On passe le JSON en objet Javascript
@@ -97,6 +102,7 @@ function setItems(product) {
     localStorage.setItem('productsInCart', JSON.stringify(cartItems));
 }
 
+// Calcul le total des produits commandés
 function totalCost(product) {
     let cartCost = localStorage.getItem('totalCost');
     
