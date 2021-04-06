@@ -41,7 +41,16 @@ const orderForm = document.getElementById('order-form');
 if (orderForm) {
     orderForm.onsubmit = (event) => {
         event.preventDefault();
-        sendForm();
+        var valid = true;
+        for (let input of document.querySelectorAll('input')) {
+            valid &= input.reportValidity();
+            if (!valid) {
+                break;
+            }
+        }
+        if (valid) {
+            sendForm();
+        }
     }
 }
 
