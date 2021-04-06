@@ -37,9 +37,12 @@ function displayCart() {
 displayCart();
 
 // Quand on soumet le formulaire
-document.getElementById('order-form').onsubmit = (event) => {
-    event.preventDefault();
-    sendForm();
+const orderForm = document.getElementById('order-form');
+if (orderForm) {
+    orderForm.onsubmit = (event) => {
+        event.preventDefault();
+        sendForm();
+    }
 }
 
 function sendForm() {
@@ -59,12 +62,11 @@ function sendForm() {
 
         Object.values(cartItems).forEach(product => {
             products.push(product._id);
-        })
+        });
 
         let contactItems = JSON.stringify({
             contact, products
-        })
-        console.log(contactItems);
+        });
         postOrder(contactItems);
     }
 }
@@ -81,12 +83,11 @@ function postOrder(contactItems) {
             body: contactItems
         })
         .then(data => data.json())
-        .then(r => {
-            let totalProducts = localStorage.getItem('totalCost');
-            localStorage.setItem('contact', JSON.stringify(r.contact));
-            localStorage.setItem('orderId', JSON.stringify(r.orderId));
-            localStorage.setItem('products', JSON.stringify(r.products));
-            localStorage.setItem('totalProducts', totalProducts);
+        .then(resp => {
+            let totalPrice = localStorage.getItem('totalCost');
+            localStorage.setItem('contact', JSON.stringify(resp.contact));
+            localStorage.setItem('orderId', JSON.stringify(resp.orderId));
+            localStorage.setItem('totalPrice', totalPrice);
             localStorage.removeItem('productsInCart');
             localStorage.removeItem('cartNumbers');
             localStorage.removeItem('totalCost');
