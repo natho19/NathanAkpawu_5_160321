@@ -73,7 +73,7 @@ function cartNumbers(product) {
     setItems(product);
 }
 
-// Récupère les produits commandés et les enregistre dans le localStorage
+// Récupère tous les produits sélectionnés et les enregistre dans le localStorage
 function setItems(product) {
     let cartItems = localStorage.getItem('productsInCart');
     // On passe le JSON en objet Javascript

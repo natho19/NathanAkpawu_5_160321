@@ -55,7 +55,7 @@ if (orderForm) {
     }
 }
 
-// Envoyer les données du formulaire
+// Récupérer les données du formulaire et les produits sélectionnés
 function sendForm() {
     let contact = {
         firstName: document.getElementById('firstname').value, 
