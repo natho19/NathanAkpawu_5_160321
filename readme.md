@@ -1,16 +1,22 @@
 # Orinoco
+Projet 5 du parcours développeur web d'OpenClassrooms : Construisez un site e-commerce
+
+## Compétences évaluées
+- Créer un plan de test pour une application
+- Interagir avec un web service avec JavaScript
+- Valider des données issues de sources externes
+- Gérer des événements JavaScript
 
 ## Installation
-Vous devez avoir installé nodejs et npm sur votre machine : https://www.npmjs.com/get-npm
-Positionnez vous sur le dossier backend à partir du projet
+Installer `nodejs` et `npm` sur votre machine en local. Après, se positionner sur le dossier backend à partir du projet.
 ```
 > cd ./backend/
 ```
-Ensuite, installez les composants du projet.
+Ensuite, installer les composants du projet.
 ```
 > npm install
 ```
-Vous pouvez maintenant lancer le projet en local pour l'utiliser
+Enfin, lancer le projet avec `node server`
 ```
 > node server
 ```
